@@ -30,6 +30,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
+        // return "";
         return Product::findOrFail($id);
     }
 
