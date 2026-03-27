@@ -36,8 +36,36 @@ Route::delete("/products/{id}" , [ProductController::class , "destroy"]);
 
 // Category Api routes
 
+
+
+
+
 Route::get("/categories" , [CategoryController::class , "index"]);
 Route::get("/categories/{id}" , [CategoryController::class , "show"]);
 Route::post("/categories" , [CategoryController::class , "store"]);
 Route::put("/categories/{id}" , [CategoryController::class , "update"]);
 Route::delete("/categories/{id}" , [CategoryController::class , "destroy"]);
+
+
+
+///middleware test
+// Route::get("/check-age" , function() {
+//     return "welcome";
+// })->middleware("check.age");
+
+Route::middleware("check.age")->group(function() {
+
+    Route::get("/check-age-group" , function() {
+        return "welcome to group";
+    });
+    Route::get("/check-age-group-2" , function() {
+        return "welcome to group 2";
+    });
+
+    Route::get("/check-age-group-3" , function() {
+        return "welcome to group 3";
+    });
+
+});
+
+//webinar 
